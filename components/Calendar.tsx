@@ -62,7 +62,7 @@ const nextMonth = () => onChange(add(value, { months: 1 }));
 
       const date = index + 1
       
-     return  <div className="bg-purple-700 h-[200px] rounded-sm text-white text-right pr-4 pt-2" key={date}>{date}</div>
+     return  <div className="bg-gray-400 h-[200px] rounded-sm text-white text-right pr-4 pt-2" key={date}>{date}</div>
       
   })}
 
