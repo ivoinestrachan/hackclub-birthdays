@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+
+.text-bg{
+  background: linear-gradient(180deg, #F7FF00 0%, #FF5B00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Shrikhand', cursive;
+
+}
+
