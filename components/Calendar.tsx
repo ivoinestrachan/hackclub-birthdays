@@ -16,7 +16,7 @@ interface Props {
 const Calendar: React.FC<Props> = ({ value = new Date(), onChange }) => {
   const startDate = startOfMonth(value);
   const endDate = endOfMonth(value);
-  const days: string[] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const days: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
   const numDays = differenceInDays(endDate, startDate) + 1;
 
@@ -28,40 +28,30 @@ const Calendar: React.FC<Props> = ({ value = new Date(), onChange }) => {
 
   return (
     <>
-      <div className="flex items-center mx-auto justify-between pt-10">
-        <div className="text-[#5bc0de] text-[32px] font-bold font-phantom">
-          {format(value, "LLLL yyyy")}
-        </div>
-        <div className="flex gap-5">
-          <div className="hover:bg-[#ADD8E6] relative flex items-center space-x-2 rounded-md py-1 px-2 sm:px-3 cursor-pointer">
-            Week
+      <div className="flex items-center mx-auto justify-between py-10 px-24">
+        <div className="flex flex-col items-center gap-y-4">
+          <p className="text-[#5bc0de] text-3xl font-bold font-phantom">
+            {format(value, "LLLL yyyy")}
+          </p>
+          <div className="flex gap-x-5">
+            <div className="hover:bg-neutral-700 relative flex items-center space-x-2 rounded-md py-1 px-2 sm:px-3 cursor-pointer">
+              Week
+            </div>
+            <div className="hover:bg-neutral-700 flex items-center space-x-2 rounded-md py-1 px-2 sm:px-3 cursor-pointer">
+              Month
+            </div>
           </div>
-          <div className="hover:bg-[#ADD8E6] flex items-center space-x-2 rounded-md py-1 px-2 sm:px-3 cursor-pointer">
-            Month
-          </div>
+          <div className="flex items-center gap-x-5">
+          <Button onClick={prevMonth} text="Back"/>
+          <Button onClick={nextMonth} text="Next" />
         </div>
-
-        <div className="flex space-x-3">
-          <button
-            className="flex items-center bg-blue-700 space-x-2 rounded-md py-1 px-2 textstyle text-white  sm:space-x-3 sm:px-3"
-            onClick={prevMonth}
-          >
-            Back
-          </button>
-          <button
-            className="flex items-center bg-blue-700 space-x-2 rounded-md py-1 px-2 textstyle text-white sm:space-x-3 sm:px-3"
-            onClick={nextMonth}
-          >
-            Next
-          </button>
         </div>
       </div>
-      <div
-        id="weekdays"
-        className="flex items-center"
-      >
+      <div id="weekdays" className="flex items-center gap-x-28">
         {days.map((day) => (
-          <div className="px-4 py-2 bg-black bg-opacity-80 backdrop-blur-lg grid place-items-center">{day}</div>
+          <div className="px-6 py-2 bg-neutral-700 bg-opacity-40 backdrop-blur-sm grid place-items-center border border-neutral-600 rounded-lg">
+            {day}
+          </div>
         ))}
       </div>
       <div className="flex items-center mx-auto justify-between pt-1 pb-2">
@@ -93,5 +83,14 @@ const Calendar: React.FC<Props> = ({ value = new Date(), onChange }) => {
     </>
   );
 };
+
+const Button = ({onClick, text}: {onClick: any, text: string}) => (
+          <button
+            className="flex items-center bg-blue-700 space-x-2 rounded-md py-1 px-2 textstyle text-white sm:space-x-3 sm:px-3"
+            onClick={onClick}
+          >
+            {text}
+          </button>
+)
 
 export default Calendar;

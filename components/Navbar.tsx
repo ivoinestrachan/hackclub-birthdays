@@ -33,7 +33,7 @@ const Navbar = () => {
       <div className="flex gap-5 items-center">
         <div>About</div>
         <a href="https://github.com/sikethedev/hackclub-birthdays">
-          <FaGithub size={25} />
+          <FaGithub size={25}/>
         </a>
         <div
           className="relative flex"
